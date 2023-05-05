@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GetMenu} from 'services/handler';
 import {IMenuItems} from 'types/interfaces';
+import {_onCheckObjectMenu} from 'utils/constants';
 import {create} from 'zustand';
 import {createJSONStorage, devtools, persist} from 'zustand/middleware';
 
@@ -21,6 +22,8 @@ const useMenuStore = create<IMenuStore>()(
           try {
             const response = await GetMenu();
             console.log('response', response);
+            const filteredArray = _onCheckObjectMenu(response);
+            console.log('filteredArra', filteredArray);
             set(() => ({
               isLoading: false,
               menuData: response,

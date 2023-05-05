@@ -44,12 +44,3 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
-
-Button.propTypes = {
-  text: PropTypes.any,
-  prefix: PropTypes.element,
-  postfix: PropTypes.element,
-  onPress: PropTypes.func,
-  containerStyle: PropTypes.any,
-  textColor: PropTypes.string,
-};

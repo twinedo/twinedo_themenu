@@ -14,13 +14,7 @@ export default function Card(props: ICard) {
   return (
     <View
       {...props}
-      style={[
-        globalStyles.horizontalDefaultPadding,
-        globalStyles.verticalDefaultPadding,
-        styles.container,
-        containerStyle,
-        {borderRadius: borderRadius},
-      ]}>
+      style={[styles.container, containerStyle, {borderRadius: borderRadius}]}>
       {children}
     </View>
   );

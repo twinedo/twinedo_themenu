@@ -9,9 +9,9 @@ export interface IInputProps extends TextInputProps {
 
 export interface IMenuItems {
   food_code?: string;
-  name?: string;
+  name: string;
   picture: string;
-  price?: string;
+  price: string;
   picture_ori?: string;
   created_at?: string;
   id?: number;
