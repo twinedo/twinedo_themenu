@@ -7,10 +7,8 @@ import {
   Image,
   ListRenderItem,
   StatusBar,
-  Animated,
-  Pressable,
 } from 'react-native';
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect} from 'react';
 import globalStyles from 'styles/globalStyles';
 import {BaseContainer, Button, Card, Input, Spacer, Toolbar} from 'components';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -19,10 +17,6 @@ import {InputComponentRef} from 'components/Input';
 import useMenuStore from 'store/useMenuStore';
 import {IMenuItems} from 'types/interfaces';
 import {_currencyFormat, _onCheckImage} from 'services/fun';
-import ActionSheet, {ActionSheetRef} from 'react-native-actions-sheet';
-import {percentageWidth} from 'utils/screen_size';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Footer from 'components/Footer';
 import useCartStore from 'store/useCartStore';
 
@@ -33,9 +27,8 @@ const ITEM_WIDTH =
 const ITEM_SPACING = 4;
 export default function Home() {
   const inputRef = useRef<InputComponentRef>(null);
-  // const actionSheetRef = useRef<ActionSheetRef>(null);
 
-  const {isLoading, menuData, getAllMenus} = useMenuStore();
+  const {menuData, getAllMenus} = useMenuStore();
   const {addToCart} = useCartStore();
 
   useEffect(() => {
