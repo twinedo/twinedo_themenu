@@ -104,13 +104,6 @@ export default function Home() {
             contentContainerStyle={styles.content}
           />
           <Footer />
-          {/* <ActionSheet
-            ref={actionSheetRef}
-            snapPoints={[0, 300, 100]}
-            backgroundInteractionEnabled={false}
-            initialSnapIndex={2}>
-            <Text>Hi, I am here.</Text>
-          </ActionSheet> */}
         </View>
       </View>
     </BaseContainer>

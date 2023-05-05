@@ -10,6 +10,7 @@ interface ICartStore {
   cartData: Array<IMenuItems & {quantity: number}>;
   addToCart?: (item: IMenuItems) => void;
   minusToCart?: (item: IMenuItems) => void;
+  deleteFromCart?: (id: number) => void;
 }
 
 const useCartStore = create<ICartStore>()(
@@ -34,22 +35,14 @@ const useCartStore = create<ICartStore>()(
         minusToCart: (item: IMenuItems) => {
           const newCart = [...get().cartData];
           const findIdx = newCart.findIndex(obj => obj.id === item.id);
-          if (findIdx >= 0) {
-            if (newCart[findIdx].quantity === 1) {
-              Alert.alert('cuk', 'cuk');
-              const filtered = newCart.filter(o => o.quantity > 0);
-              console.log('filtered', filtered);
-              //   set({cartData: });
-            } else {
-              Alert.alert('cuk', 'cukad');
-              newCart[findIdx].quantity = newCart[findIdx].quantity - 1;
-              set({cartData: newCart});
-            }
-          } else {
-            Alert.alert('test', 'test');
-            const filtered = newCart.filter(o => o.quantity > 0);
-            set({cartData: filtered});
-          }
+
+          newCart[findIdx].quantity = newCart[findIdx].quantity - 1;
+          set({cartData: newCart});
+        },
+        deleteFromCart: (id: number) => {
+          const newCart = [...get().cartData];
+          const filtered = newCart.filter(o => o.id !== id);
+          set({cartData: filtered});
         },
       }),
       {

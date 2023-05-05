@@ -5,6 +5,7 @@ export interface IInputProps extends TextInputProps {
   prefix?: ReactNode;
   postfix?: ReactNode;
   containerStyle?: StyleProp<ViewStyle> | undefined;
+  textInputStyle?: ViewStyle | ViewStyle[] | undefined;
 }
 
 export interface IMenuItems {

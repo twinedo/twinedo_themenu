@@ -10,7 +10,7 @@ export interface InputComponentRef {
 }
 
 const Input = forwardRef<InputComponentRef, IInputProps>((props, ref) => {
-  const {containerStyle, prefix, postfix} = props;
+  const {containerStyle, prefix, postfix, textInputStyle} = props;
   const [value, setValue] = useState('');
   const inputRef = useRef<TextInput>(null);
 
@@ -35,7 +35,7 @@ const Input = forwardRef<InputComponentRef, IInputProps>((props, ref) => {
         value={value}
         onChangeText={setValue}
         placeholderTextColor={GREY3}
-        style={[globalStyles.displayFlex, styles.txtInput]}
+        style={[globalStyles.displayFlex, styles.txtInput, textInputStyle]}
       />
       {postfix}
     </View>
